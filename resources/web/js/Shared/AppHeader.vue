@@ -42,10 +42,10 @@
         >登入</a>
       </nav>
     </div>
-    <nav class="bg-gray-300 text-gray-900 px-4 lg:px-16 flex-col flex-grow py-2 md:py-0 md:flex justify-start md:flex-row">
+    <nav class="bg-gray-300 text-gray-900 px-4 lg:px-16 flex-col flex-grow py-2 md:py-0 md:flex justify-start md:flex-row text-center">
       <a class="btn btn-nav" href="#">產品</a>
-      <a class="btn btn-nav" href="#">功能</a>
       <a class="btn btn-nav" href="#">定價</a>
+      <a class="btn btn-nav" href="#">了解我們</a>
     </nav>
   </header>
 </template>

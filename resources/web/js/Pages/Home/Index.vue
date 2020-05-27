@@ -1,5 +1,11 @@
 <template>
   <div>
+    <section>
+      <div class="container">
+          <p>利用網絡空間欺騙技術，讓受黑客攻擊的中小企業及創業公司提供應對內網入侵、高級威脅的誘捕與溯源系統，</p>
+          <p>提升主動防禦能力，讓安全防禦工作由被動變主動</p>
+      </div>
+    </section>
     <section class="text-gray-700 body-font">
       <div class="px-5 py-24 mx-auto">
         <div

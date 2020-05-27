@@ -5,14 +5,14 @@
       class="bg-cover bg-center h-auto text-white py-24 px-10 object-fill"
       :style="`background-image:url(${$page.banner})`"
     >
-      <div class="md:w-1/2 lg:pl-10">
-        <p class="font-bold text-sm uppercase">Services</p>
-        <p class="text-3xl font-bold">Multimedia products</p>
-        <p class="text-2xl mb-10 leading-none">Atractive designs for your brand</p>
+      <div class="flex flex-col lg:w-1/2 bg-gray-700 text-white px-2 py-4 justify-center">
+        <p class="font-bold text-md uppercase mb-2 pl-4">產品服務</p>
+        <p class="text-3xl font-bold mb-4 pl-8">大規模探索及保護您的敏感資料</p>
+        <p class="text-2xl mb-4 leading-none pl-12">為您提供全面的安全諮詢</p>
         <a
           href="#"
-          class="bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800"
-        >Contact us</a>
+          class="mx-auto bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-purple-300 hover:text-gray-800"
+        >開始使用</a>
       </div>
     </div>
     <main>
