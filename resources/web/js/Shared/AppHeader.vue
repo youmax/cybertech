@@ -3,15 +3,17 @@
     <div
       class="flex flex-col max-w-screen-xl px-4 py-2 lg:px-8 mx-auto md:items-center md:justify-between md:flex-row"
     >
-      <div class="p-4 flex flex-row items-center justify-between">
+      <div class="px-8 flex flex-row items-center justify-between">
         <!-- Logo -->
         <a
           href="#"
-          class="text-lg font-semibold tracking-widest text-white uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline"
-        >Creative Ego</a>
+          class="mx-auto text-lg font-semibold tracking-widest text-white uppercase rounded-lg focus:outline-none"
+        >
+          <img src='storage/logo.png' />
+        </a>
         <!-- toggle button-->
         <button
-          class="md:hidden rounded-lg focus:outline-none focus:shadow-outline"
+          class="absolute right-0 mr-2 md:hidden rounded-lg focus:outline-none"
           @click="open=!open"
         >
           <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
@@ -42,7 +44,9 @@
         >登入</a>
       </nav>
     </div>
-    <nav class="bg-gray-300 text-gray-900 px-4 lg:px-16 flex-col flex-grow py-2 md:py-0 md:flex justify-start md:flex-row text-center">
+    <nav
+      class="bg-gray-300 text-gray-900 px-4 lg:px-16 flex-col flex-grow py-2 md:py-0 md:flex justify-start md:flex-row text-center"
+    >
       <a class="btn btn-nav" href="#">產品</a>
       <a class="btn btn-nav" href="#">定價</a>
       <a class="btn btn-nav" href="#">了解我們</a>
