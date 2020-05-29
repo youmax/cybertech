@@ -1,42 +1,67 @@
 <template>
   <div>
-    <app-header />
-    <div
-      class="bg-cover bg-center h-auto text-white py-24 px-10 object-fill"
-      :style="`background-image:url(${$page.banner})`"
-    >
-      <div class="flex flex-col lg:w-1/2 bg-gray-700 text-white px-2 py-4 justify-center">
-        <p class="font-bold text-md uppercase mb-2 pl-4">產品服務</p>
-        <p class="text-3xl font-bold mb-4 pl-8">大規模探索及保護您的敏感資料</p>
-        <p class="text-2xl mb-4 leading-none pl-12">為您提供全面的安全諮詢</p>
-        <a
-          href="#"
-          class="mx-auto bg-purple-800 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-purple-300 hover:text-gray-800"
-        >開始使用</a>
-      </div>
-    </div>
+    <navbar-component />
     <main>
+      <div
+        class="relative pt-16 pb-32 flex content-center items-center justify-center"
+        style="min-height: 75vh;"
+      >
+        <div
+          class="absolute top-0 w-full h-full bg-center bg-cover"
+          v-bind:style="`background-image:url(${$page.banner})`"
+        >
+          <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
+        </div>
+        <div class="container relative mx-auto">
+          <div class="items-center flex flex-wrap">
+            <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+              <h1 class="text-white font-semibold text-5xl">大規模探索及保護您的敏感資料</h1>
+              <p class="mt-4 text-lg text-gray-300">為您提供全面的安全諮詢</p>
+              <a href="#contactus" class="btn-indigo py-4 px-8 text-white font-bold mt-8">開始使用</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
+          style="height: 70px; transform: translateZ(0px);"
+        >
+          <svg
+            class="absolute bottom-0 overflow-hidden"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            version="1.1"
+            viewBox="0 0 2560 100"
+            x="0"
+            y="0"
+          >
+            <polygon
+              class="fill-current text-gray-300"
+              points="2560 0 2560 100 0 100"
+            />
+          </svg>
+        </div>
+      </div>
       <slot />
     </main>
-    <app-footer />
+    <footer-component />
   </div>
 </template>
 
 <script>
-import AppHeader from "@/Shared/AppHeader";
-import AppFooter from "@/Shared/AppFooter";
+import NavbarComponent from "@/Shared/Navbar";
+import FooterComponent from "@/Shared/Footer";
 import Dropdown from "@/Shared/Dropdown";
 
 export default {
   components: {
     Dropdown,
-    AppHeader,
-    AppFooter
+    NavbarComponent,
+    FooterComponent,
   },
   data() {
     return {
       open: false
     };
-  },
+  }
 };
 </script>

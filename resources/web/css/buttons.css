@@ -1,0 +1,20 @@
+.btn-nav {
+    @apply block bg-transparent font-semibold px-3 py-4 whitespace-no-wrap text-center rounded;
+    &:hover,
+    &:focus,
+    &.active{
+        @apply text-gray-900 bg-gray-200 outline-none text-gray-900;
+    },
+    &:hover{
+        @apply cursor-pointer;
+    }
+}
+
+.btn-indigo {
+    @apply block bg-purple-800 py-4 px-6 text-white font-bold uppercase text-xs rounded text-center;
+    &:hover,
+    &:focus,
+    &.active{
+        @apply text-gray-800 bg-gray-200;
+    }
+}
