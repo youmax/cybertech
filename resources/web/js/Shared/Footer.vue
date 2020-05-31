@@ -9,7 +9,7 @@
             <a
               href="https://www.creative-tim.com"
               class="text-white hover:text-gray-400 text-sm font-semibold py-1"
-            >Creative Ego</a>
+            >Cyber Tech</a>
           </div>
         </div>
         <div class="w-full md:w-8/12 px-4">
