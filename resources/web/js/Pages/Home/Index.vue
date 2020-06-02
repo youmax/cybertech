@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- Service -->
-    <a id="services" class="invisible block relative" style="top:-5rem"></a>
+    <!-- Products -->
+    <a id="products" class="invisible block relative" style="top:-5rem"></a>
     <section class="pb-20 bg-gray-300 -mt-24">
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap">
@@ -54,7 +54,6 @@
                 />
                 <span class="flex-grow flex flex-col pl-4">
                   <span class="title-font font-medium text-gray-900">{{ testimonial.name }}</span>
-                  <span class="text-gray-500 text-sm">{{ testimonial.position }}</span>
                 </span>
               </a>
             </div>
@@ -62,7 +61,7 @@
         </div>
       </div>
     </section>
-    <!-- Service -->
+    <!-- Product -->
     <!-- About us -->
     <a id="aboutus" class="invisible block relative" style="top:-5rem"></a>
     <section class="relative py-20 bg-white text-gray-700 body-font">
@@ -112,7 +111,7 @@
                 class="shadow-lg rounded-full max-w-full mx-auto"
                 style="max-width: 120px;"
               />
-              <div class="pt-6 text-center">
+              <div class="py-6 text-center">
                 <h5 class="text-xl font-bold">{{ hero.name }}</h5>
                 <p class="mt-1 text-sm text-gray-600 uppercase font-semibold">{{ hero.title }}</p>
               </div>
@@ -173,47 +172,40 @@ export default {
     return {
       services: [
         {
-          icon: "analysis",
+          icon: "evaluation",
           class: "bg-red-400",
-          title: "數據分析系統",
-          description:
-            "分析系統為企業帶來全方位洞察，協助您在繁雜的數位資訊洪流中找出潛在的成長機遇，在繁雜的洪流資訊中精煉出潛在的黃金洞察。"
-        },
-        {
-          icon: "analysis",
-          class: "bg-blue-500",
-          title: "雲端運維管理",
-          description:
-            "專業的運維團隊，為企業建立及管理私有雲，也可託管維護阿里雲、AWS、GCP等雲服務。"
-        },
-        {
-          icon: "analysis",
-          class: "bg-gray-800",
-          title: "架構安全規劃",
-          description:
-            "協助企業規劃整體網路架構，提供安全系統部署、安全評估、滲透測試、安全監控，保障您的資料安全。"
-        },
-        {
-          icon: "analysis",
-          class: "bg-gray-800",
           title: "安全評估服務",
           description:
-            "協助企業規劃整體網路架構，提供安全系統部署、安全評估、滲透測試、安全監控，保障您的資料安全。"
+            "分析現有資訊架構、縮小入侵來源、強化異常事件監控，主機及網頁漏洞週期性掃描，為企業安全做出最好的評估。"
         },
         {
-          icon: "analysis",
-          class: "bg-gray-800",
-          title: "滲透測試服務",
+          icon: "structure",
+          class: "bg-blue-500",
+          title: "架構安全規劃",
           description:
-            "協助企業規劃整體網路架構，提供安全系統部署、安全評估、滲透測試、安全監控，保障您的資料安全。"
+            "熟悉各類IT架構規劃，提供安全的傳統及雲端環境建置。"
+        },
+        {
+          icon: "cloud",
+          class: "bg-gray-800",
+          title: "雲端維運管理",
+          description:
+            "AWS, GCP, AliCloud 專業服務的維運管理。"
         },
         {
           icon: "analysis",
-          class: "bg-gray-800",
+          class: "bg-green-800",
+          title: "雲端數據分析",
+          description:
+            "分析系統為企業帶來全方位洞察，協助您在繁雜的數位資訊洪流中找出潛在的成長機遇，在繁雜的洪流資訊中精鍊出潛在的黃金洞察。"
+        },
+        {
+          icon: "deployment",
+          class: "bg-purple-800",
           title: "安全系統部署",
           description:
-            "協助企業規劃整體網路架構，提供安全系統部署、安全評估、滲透測試、安全監控，保障您的資料安全。"
-        }
+            "為倍受黑客攻擊的高危行業客戶提供高級威脅誘捕與溯源系統，幫助用戶追蹤溯源，定位攻擊者自然人身份"
+        },
       ],
       testimonials: [
         {
@@ -231,14 +223,18 @@ export default {
         }
       ],
       heros: [
-        { name: "Len", image: "storage/chang.jpg", title: "CIO" },
-        { name: "Aga", image: "storage/chang.jpg", title: "IT Manager" },
+        { name: "Len", image: "storage/avatars/0.png" },
+        { name: "Paige", image: "storage/avatars/1.png"},
+        { name: "Chien", image: "storage/avatars/0.png" },
+        { name: "Aga", image: "storage/avatars/0.png"},
         {
           name: "Lee Lim",
-          image: "storage/chang.jpg",
-          title: "Network Architect"
+          image: "storage/avatars/0.png",
         },
-        { name: "Liew", image: "storage/chang.jpg", title: "System engineer" }
+        { name: "Liew", image: "storage/avatars/0.png" },
+        { name: "Alcris", image: "storage/avatars/0.png" },
+        { name: "Charlie", image: "storage/avatars/0.png" },
+        { name: "Mike", image: "storage/avatars/0.png" },
       ]
     };
   }

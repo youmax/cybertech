@@ -22,9 +22,9 @@
             </li>
             <li>
               <a
-                href="#services"
+                href="#products"
                 class="text-white hover:text-gray-400 text-sm font-semibold block py-1 px-3"
-              >服務一覧</a>
+              >產品</a>
             </li>
             <li>
               <a
