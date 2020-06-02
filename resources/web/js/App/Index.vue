@@ -1,5 +1,41 @@
 <template>
-  <div>
+  <layout>
+    <div
+      class="relative pt-16 pb-32 flex content-center items-center justify-center"
+      style="min-height: 75vh;"
+    >
+      <div
+        class="absolute top-0 w-full h-full bg-center bg-cover"
+        v-bind:style="`background-image:url(${$page.banner})`"
+      >
+        <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
+      </div>
+      <div class="container relative mx-auto">
+        <div class="items-center flex flex-wrap">
+          <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+            <h1 class="text-white font-semibold text-5xl">大規模探索及保護您的敏感資料</h1>
+            <p class="mt-4 text-lg text-gray-300">為您提供全面的安全諮詢</p>
+            <a href="#contactus" class="btn-indigo py-4 px-8 text-white font-bold mt-8">開始使用</a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
+        style="height: 70px; transform: translateZ(0px);"
+      >
+        <svg
+          class="absolute bottom-0 overflow-hidden"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          version="1.1"
+          viewBox="0 0 2560 100"
+          x="0"
+          y="0"
+        >
+          <polygon class="fill-current text-gray-300" points="2560 0 2560 100 0 100" />
+        </svg>
+      </div>
+    </div>
     <!-- Products -->
     <a id="products" class="invisible block relative" style="top:-5rem"></a>
     <section class="pb-20 bg-gray-300 -mt-24">
@@ -155,7 +191,7 @@
         </div>
       </div>
     </section>
-  </div>
+  </layout>
 </template>
 
 <script>
@@ -163,9 +199,9 @@ import Layout from "@/Shared/Layout";
 import Icon from "@/Shared/Icon";
 
 export default {
-  metaInfo: { title: "Homepage" },
-  layout: Layout,
+  metaInfo: { title: "CyberTech - Your best IT solution" },
   components: {
+    Layout,
     Icon
   },
   data() {
@@ -182,15 +218,13 @@ export default {
           icon: "structure",
           class: "bg-blue-500",
           title: "架構安全規劃",
-          description:
-            "熟悉各類IT架構規劃，提供安全的傳統及雲端環境建置。"
+          description: "熟悉各類IT架構規劃，提供安全的傳統及雲端環境建置。"
         },
         {
           icon: "cloud",
           class: "bg-gray-800",
           title: "雲端維運管理",
-          description:
-            "AWS, GCP, AliCloud 專業服務的維運管理。"
+          description: "AWS, GCP, AliCloud 專業服務的維運管理。"
         },
         {
           icon: "analysis",
@@ -205,7 +239,7 @@ export default {
           title: "安全系統部署",
           description:
             "為倍受黑客攻擊的高危行業客戶提供高級威脅誘捕與溯源系統，幫助用戶追蹤溯源，定位攻擊者自然人身份"
-        },
+        }
       ],
       testimonials: [
         {
@@ -224,17 +258,17 @@ export default {
       ],
       heros: [
         { name: "Len", image: "storage/avatars/0.png" },
-        { name: "Paige", image: "storage/avatars/1.png"},
+        { name: "Paige", image: "storage/avatars/1.png" },
         { name: "Chien", image: "storage/avatars/0.png" },
-        { name: "Aga", image: "storage/avatars/0.png"},
+        { name: "Aga", image: "storage/avatars/0.png" },
         {
           name: "Lee Lim",
-          image: "storage/avatars/0.png",
+          image: "storage/avatars/0.png"
         },
         { name: "Liew", image: "storage/avatars/0.png" },
         { name: "Alcris", image: "storage/avatars/0.png" },
         { name: "Charlie", image: "storage/avatars/0.png" },
-        { name: "Mike", image: "storage/avatars/0.png" },
+        { name: "Mike", image: "storage/avatars/0.png" }
       ]
     };
   }

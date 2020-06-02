@@ -16,7 +16,7 @@ class HomeController extends Controller
     public function index()
     {
         Inertia::share('banner', Storage::url('banner1.jpg'));
-        return Inertia::render('Home/Index');
+        return Inertia::render('Index');
     }
 
     public function contact()

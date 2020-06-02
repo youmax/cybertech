@@ -16,7 +16,7 @@ const tailwindcss = require('tailwindcss')
  |
  */
 
-mix.js('resources/web/js/app.js', 'public/js/app.js')
+mix.js('resources/web/js/app.js', 'public/js/')
   .postCss('resources/web/css/app.css', 'public/css/app.css')
   .options({
     postCss: [
@@ -41,5 +41,10 @@ mix.js('resources/web/js/app.js', 'public/js/app.js')
       },
     },
   })
-  .version()
-  .sourceMaps()
+
+if (mix.inProduction()) {
+  mix.version();
+}
+else{
+  mix.sourceMaps();
+}

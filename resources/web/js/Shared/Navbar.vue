@@ -48,9 +48,9 @@
         class="lg:flex flex-grow items-center justify-end"
         v-bind:class="{'hidden': !show, 'block': show}"
       >
-        <a class="btn-nav lg:mx-2" href="#products">產品</a>
-        <a class="btn-nav lg:mx-2" href="#aboutus">關於我們</a>
-        <a class="btn-nav lg:mx-2" href="#contactus">聯繫我們</a>
+        <a class="btn-nav lg:mx-2" href="/#products">產品</a>
+        <a class="btn-nav lg:mx-2" href="/#aboutus">關於我們</a>
+        <a class="btn-nav lg:mx-2" href="/#contactus">聯繫我們</a>
         <dropdown />
         <a class="btn-indigo lg:mx-2" href="#">登入</a>
       </div>
