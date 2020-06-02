@@ -7,9 +7,9 @@
           <div class="text-sm text-white font-semibold py-1">
             Copyright © {{date}}
             <a
-              href="https://www.creative-tim.com"
+              href="/"
               class="text-white hover:text-gray-400 text-sm font-semibold py-1"
-            >Cyber Tech</a>
+            >{{ $page.app.name }}</a>
           </div>
         </div>
         <div class="w-full md:w-8/12 px-4">
