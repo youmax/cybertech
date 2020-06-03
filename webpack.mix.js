@@ -16,8 +16,10 @@ const tailwindcss = require('tailwindcss')
  |
  */
 
-mix.js('resources/web/js/app.js', 'public/js/')
-  .postCss('resources/web/css/app.css', 'public/css/app.css')
+mix
+  /* Front end Assets */
+  .js('resources/App/app.js', 'public/app/app.js')
+  .postCss('resources/App/css/app.css', 'public/app/app.css')
   .options({
     postCss: [
       cssImport(),
@@ -25,7 +27,7 @@ mix.js('resources/web/js/app.js', 'public/js/')
       tailwindcss('tailwind.config.js'),
       ...mix.inProduction() ? [
         purgecss({
-          content: ['./resources/views/**/*.blade.php', './resources/web/js/**/*.vue'],
+          content: ['./resources/views/**/*.blade.php', './resources/App/**/*.vue'],
           defaultExtractor: content => content.match(/[\w-/:.]+(?<!:)/g) || [],
           whitelistPatternsChildren: [/nprogress/],
         }),
@@ -33,18 +35,18 @@ mix.js('resources/web/js/app.js', 'public/js/')
     ],
   })
   .webpackConfig({
-    output: { chunkFilename: 'js/[name].js?id=[chunkhash]' },
+    output: { chunkFilename: 'app/[name].js?id=[chunkhash]' },
     resolve: {
       alias: {
         vue$: 'vue/dist/vue.runtime.esm.js',
-        '@': path.resolve('resources/web/js'),
+        '@': path.resolve('resources/App'),
       },
     },
   })
+  /* Admin Assets */
+  // .js('resources/web/js/app.js', 'public/js/')
+  // .postCss('resources/web/css/app.css', 'public/css/app.css')
 
 if (mix.inProduction()) {
   mix.version();
-}
-else{
-  mix.sourceMaps();
 }
