@@ -10,7 +10,7 @@ export default {
   components:{
     Layout
   },
-  metaInfo: { title: "aaa" },
+  metaInfo: { title: "Home" },
 
 };
 </script>

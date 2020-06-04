@@ -1,6 +1,8 @@
 {
     "private": true,
     "scripts": {
+        "build": "npm-run-all prod admin-prod",
+        "watch-all": "npm-run-all --parallel watch admin-watch",
         "dev": "npm run development",
         "development": "cross-env process.env.section=app NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "npm run development -- --watch",
@@ -39,6 +41,7 @@
         "@mdi/font": "^5.3.45",
         "bootstrap": "^4.0.0",
         "jquery": "^3.2",
+        "npm-run-all": "^4.1.5",
         "popper.js": "^1.12"
     }
 }
