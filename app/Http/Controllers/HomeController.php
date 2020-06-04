@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Storage;
 class HomeController extends Controller
 {
 
-    public function __invoke()
-    {
-        return Inertia::render('Home/Index');
-    }
+    // public function __invoke()
+    // {
+    //     return Inertia::render('Home/Index');
+    // }
 
     public function index()
     {
@@ -19,8 +19,8 @@ class HomeController extends Controller
         return Inertia::render('Index');
     }
 
-    public function contact()
+    public function terms()
     {
-        return Inertia::render('Home/Contact');
+        return Inertia::render('Term');
     }
 }

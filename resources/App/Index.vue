@@ -15,7 +15,7 @@
           <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
             <h1 class="text-white font-semibold text-5xl">大規模探索及保護您的敏感資料</h1>
             <p class="mt-4 text-lg text-gray-300">為您提供全面的安全諮詢</p>
-            <a href="#contactus" class="btn-indigo py-4 px-8 text-white font-bold mt-8">開始使用</a>
+            <a href="/login" class="btn-indigo py-4 px-8 text-white font-bold mt-8">開始使用</a>
           </div>
         </div>
       </div>

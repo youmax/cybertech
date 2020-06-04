@@ -14,4 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/')->name('home')->uses('HomeController@index');
-Route::get('/contact')->name('contact')->uses('HomeController@contact');
+Route::get('/terms')->name('terms')->uses('HomeController@terms');
+
+Auth::routes();
+
+Route::get('/admin')->name('admin.home')->uses('Admin\HomeController@index');
+// Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');

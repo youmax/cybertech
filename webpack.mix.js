@@ -1,52 +1,5 @@
-const cssImport = require('postcss-import')
-const cssNesting = require('postcss-nesting')
-const mix = require('laravel-mix')
-const path = require('path')
-const purgecss = require('@fullhuman/postcss-purgecss')
-const tailwindcss = require('tailwindcss')
+let mix = require('laravel-mix');
 
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
- | file for the application as well as bundling up all the JS files.
- |
- */
-
-mix
-  /* Front end Assets */
-  .js('resources/App/app.js', 'public/app/app.js')
-  .postCss('resources/App/css/app.css', 'public/app/app.css')
-  .options({
-    postCss: [
-      cssImport(),
-      cssNesting(),
-      tailwindcss('tailwind.config.js'),
-      ...mix.inProduction() ? [
-        purgecss({
-          content: ['./resources/views/**/*.blade.php', './resources/App/**/*.vue'],
-          defaultExtractor: content => content.match(/[\w-/:.]+(?<!:)/g) || [],
-          whitelistPatternsChildren: [/nprogress/],
-        }),
-      ] : [],
-    ],
-  })
-  .webpackConfig({
-    output: { chunkFilename: 'app/[name].js?id=[chunkhash]' },
-    resolve: {
-      alias: {
-        vue$: 'vue/dist/vue.runtime.esm.js',
-        '@': path.resolve('resources/App'),
-      },
-    },
-  })
-  /* Admin Assets */
-  // .js('resources/web/js/app.js', 'public/js/')
-  // .postCss('resources/web/css/app.css', 'public/css/app.css')
-
-if (mix.inProduction()) {
-  mix.version();
+if (process.env.section) {
+  require(`${__dirname}/webpack.mix.${process.env.section}.js`);
 }

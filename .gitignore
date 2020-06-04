@@ -4,6 +4,8 @@
 /public/app
 /public/admin
 /public/dashboard
+/public/fonts
+/public/mix-manifest.json
 /storage/*.key
 /vendor
 .env
