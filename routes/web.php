@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/')->name('home')->uses('HomeController@index');
-Route::get('/terms')->name('terms')->uses('HomeController@terms');
+Route::get('/')->name('home')->uses('App\HomeController@index');
+Route::get('/terms')->name('terms')->uses('App\HomeController@terms');
 
 Auth::routes();
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\App;
 
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;
@@ -19,8 +19,8 @@ class HomeController extends Controller
         return Inertia::render('Index');
     }
 
-    public function terms()
+    public function term()
     {
-        return Inertia::render('Term');
+        return Inertia::render('terms');
     }
 }
