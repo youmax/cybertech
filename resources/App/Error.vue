@@ -2,7 +2,7 @@
   <layout>
     <div class="text-center container pt-40 mx-auto h-screen" style="margin-bottom: -4rem;">
       <div class="flex flex-col">
-        <h1 class="text-black font-bold text-5xl mb-10">Oops...</h1>
+        <h1 class="text-black font-bold text-5xl mb-10">{{ title }}</h1>
         <h3 class="text-black font-bold text-3xl">{{ description }}</h3>
       </div>
     </div>
@@ -27,7 +27,7 @@ export default {
         500: "500: Server Error",
         404: "404: Page Not Found",
         403: "403: Forbidden"
-      }[this.status];
+      }[this.status] || "Oops...";
     },
     description() {
       return {
@@ -35,7 +35,7 @@ export default {
         500: "Whoops, something went wrong on our servers.",
         404: "Sorry, the page you are looking for could not be found.",
         403: "Sorry, you are forbidden from accessing this page."
-      }[this.status];
+      }[this.status] || "Sorry, something went wrong on our servers.";
     }
   }
 };

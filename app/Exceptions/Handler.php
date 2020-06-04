@@ -52,9 +52,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        // return parent::render($request, $exception);
         $response = parent::render($request, $exception);
-        // dd($response);
         if (App::environment('production')) {
             return Inertia::render('Error', ['status' => $response->status()])
                 ->toResponse($request)
