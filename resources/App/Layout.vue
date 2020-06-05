@@ -1,7 +1,7 @@
 <template>
   <div>
     <navbar-component />
-    <main>
+    <main class="overflow-y-auto" scroll-region>
       <slot />
     </main>
     <footer-component />

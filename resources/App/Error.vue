@@ -1,22 +1,21 @@
 <template>
-  <layout>
-    <div class="text-center container pt-40 mx-auto h-screen" style="margin-bottom: -4rem;">
-      <div class="flex flex-col">
+    <div class="text-center container mx-auto" style="margin-bottom: -4rem;">
+      <div class="flex flex-col h-screen justify-center align-center">
         <h1 class="text-black font-bold text-5xl mb-10">{{ title }}</h1>
         <h3 class="text-black font-bold text-3xl">{{ description }}</h3>
       </div>
     </div>
-  </layout>
 </template>
 
 <script>
-import Layout from "@/Shared/Layout";
+import Layout from "@/Layout";
 
 export default {
   components:{
     Layout
   },
   metaInfo: { title: "Error" },
+  layout:Layout,
   props: {
     status: Number
   },

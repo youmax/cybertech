@@ -1,5 +1,5 @@
 <template>
-  <layout>
+  <div>
     <div
       class="relative pt-16 pb-32 flex content-center items-center justify-center"
       style="min-height: 75vh;"
@@ -15,7 +15,7 @@
           <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
             <h1 class="text-white font-semibold text-5xl">大規模探索及保護您的敏感資料</h1>
             <p class="mt-4 text-lg text-gray-300">為您提供全面的安全諮詢</p>
-            <a href="/login" class="btn-indigo py-4 px-8 text-white font-bold mt-8">開始使用</a>
+            <a :href="route('dashboard.login')" class="btn-indigo py-4 px-8 text-white font-bold mt-8">開始使用</a>
           </div>
         </div>
       </div>
@@ -191,15 +191,16 @@
         </div>
       </div>
     </section>
-  </layout>
+  </div>
 </template>
 
 <script>
-import Layout from "@/Shared/Layout";
+import Layout from "@/Layout";
 import Icon from "@/Shared/Icon";
 
 export default {
   metaInfo: { title: "CyberTech - Your best IT solution" },
+  layout: Layout,
   components: {
     Layout,
     Icon
