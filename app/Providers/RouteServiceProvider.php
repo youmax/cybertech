@@ -21,7 +21,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/admin';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -42,11 +42,60 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
-        $this->mapApiRoutes();
+        // $this->mapApiRoutes();
 
-        $this->mapWebRoutes();
+        $this->mapAuthRoutes();
 
-        //
+        $this->mapAppRoutes();
+
+        $this->mapAdminRoutes();
+
+        $this->mapDashboardRoutes();
+    }
+
+        /**
+     * Define the "web" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapAuthRoutes()
+    {
+        Route::middleware('web')
+            ->namespace('App\Http\Controllers')
+            ->group(base_path('routes/auth.php'));
+    }
+
+
+    /**
+     * Define the "web" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapAppRoutes()
+    {
+        Route::middleware('web')
+            ->namespace('App\Http\Controllers\App')
+            ->group(base_path('routes/app.php'));
+    }
+
+
+    /**
+     * Define the "web" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @return void
+     */
+    protected function mapAdminRoutes()
+    {
+        Route::middleware(['web', 'auth'])
+            ->namespace('App\Http\Controllers\Admin')
+            ->prefix('admin')
+            ->group(base_path('routes/admin.php'));
     }
 
     /**
@@ -56,11 +105,12 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function mapWebRoutes()
+    protected function mapDashboardRoutes()
     {
-        Route::middleware('web')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/web.php'));
+        Route::middleware(['web', 'auth'])
+            ->namespace('App\Http\Controllers\Dashboard')
+            ->prefix('dashboard')
+            ->group(base_path('routes/dashboard.php'));
     }
 
     /**
