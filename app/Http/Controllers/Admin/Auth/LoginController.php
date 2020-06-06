@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
+use Auth;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -17,16 +18,9 @@ class LoginController extends Controller
     | redirecting them to your home screen. The controller uses a trait
     | to conveniently provide its functionality to your applications.
     |
-    */
+     */
 
     use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -40,6 +34,26 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('login');
+        return view('login.admin');
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        // dd($user);
+    }
+
+    protected function loggedOut(Request $request)
+    {
+        return InertiaHardVisit(route('admin.login'));
+    }
+
+    public function redirectPath()
+    {
+        return route('admin.home');
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('admin');
     }
 }
