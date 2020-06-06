@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Dashboard\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Dashboard\Controller;
+use App\Models\User;
+use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -43,9 +47,39 @@ class LoginController extends Controller
         return view('login.dashboard');
     }
 
-    protected function authenticated(Request $request, $user)
+    protected function validateLogin(Request $request)
     {
-        // dd($user);
+        $request->validate([
+            'email' => 'required|string|exists:users',
+            'password' => 'required|string',
+        ]);
+    }
+
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        throw ValidationException::withMessages([
+            'password' => [trans('auth.failed')],
+        ]);
+    }
+
+    protected function attemptLogin(Request $request)
+    {
+        $user = User::role('user')->where([
+            'email' => $request->email,
+        ])->first();
+
+        if (!$user) {
+            throw ValidationException::withMessages([
+                'permission' => ['you don\'t have permissions.'],
+            ]);
+        }
+
+        if (!Hash::check($request->password, $user->password)) {
+            return false;
+        }
+
+        Auth::login($user);
+        return true;
     }
 
     protected function loggedOut(Request $request)

@@ -16,11 +16,11 @@ class UserSeeder extends Seeder
             'name' => 'test1',
             'email' => 'test1@gmail.com',
             'password' => '123456',
-        ]);
+        ])->assignRole('user');
         User::create([
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => '123456',
-        ]);
+        ])->assignRole('admin');
     }
 }

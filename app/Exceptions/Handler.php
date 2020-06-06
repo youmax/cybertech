@@ -2,9 +2,10 @@
 
 namespace App\Exceptions;
 
+use Auth;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Support\Facades\App;
-use Inertia\Inertia;
+use Symfony\Component\HttpFoundation\Response;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -52,13 +53,20 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        $response = parent::render($request, $exception);
-        if (App::environment('production')) {
-            return Inertia::render('Error', ['status' => $response->status()])
-                ->toResponse($request)
-                ->setStatusCode($response->status());
+        if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
+            if (Auth::check()) {
+                $name = explode('.', $request->route()->getName())[0];
+                $role = ($name != 'dashboard') ? $name : 'user';
+                if (!Auth::user()->hasRole($role)) {
+                    return redirect()->route("${name}.login");
+                }
+                return response()->json([
+                    'responseMessage' => 'You do not have the required authorization.',
+                    'responseStatus' => 403,
+                ]);
+            }
         }
-
+        $response = parent::render($request, $exception);
         return $response;
     }
 }

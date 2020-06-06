@@ -92,7 +92,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapAdminRoutes()
     {
-        Route::middleware(['web', 'auth'])
+        Route::middleware(['web', 'auth', 'role:admin'])
             ->namespace('App\Http\Controllers\Admin')
             ->prefix('admin')
             ->group(base_path('routes/admin.php'));
@@ -107,7 +107,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapDashboardRoutes()
     {
-        Route::middleware(['web', 'auth'])
+        Route::middleware(['web', 'auth', 'role:user'])
             ->namespace('App\Http\Controllers\Dashboard')
             ->prefix('dashboard')
             ->group(base_path('routes/dashboard.php'));

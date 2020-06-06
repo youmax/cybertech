@@ -2,9 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Str;
 
 class RedirectIfAuthenticated
 {
@@ -19,7 +19,13 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect(RouteServiceProvider::HOME);
+            $name = $request->route()->getName();
+
+            if (Str::contains($name, 'admin') && Auth::user()->hasRole('admin')) {
+                return redirect()->route('admin.home');
+            } elseif (Str::contains($name, 'dashboard') && Auth::user()->hasRole('user')) {
+                return redirect()->route('dashboard.home');
+            }
         }
 
         return $next($request);
