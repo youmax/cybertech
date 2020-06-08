@@ -57,7 +57,7 @@
     <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app color="blue darken-3" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
-        <span class="hidden-sm-and-down">Google Contacts</span>
+        <span class="hidden-sm-and-down">Admin Dashboard</span>
       </v-toolbar-title>
       <v-text-field
         flat
@@ -84,12 +84,7 @@
     <v-content>
       <v-container class="fill-height" fluid>
         <v-row align="center" justify="center">
-          <v-tooltip right>
-            <template v-slot:activator="{ on }">
-              <slot />
-            </template>
-            <span>Source</span>
-          </v-tooltip>
+          <slog />
         </v-row>
       </v-container>
     </v-content>

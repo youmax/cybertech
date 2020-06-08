@@ -19,12 +19,10 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            $name = $request->route()->getName();
+            $role = explode('.', $request->route()->getName())[0];
 
-            if (Str::contains($name, 'admin') && Auth::user()->hasRole('admin')) {
-                return redirect()->route('admin.home');
-            } elseif (Str::contains($name, 'user') && Auth::user()->hasRole('user')) {
-                return redirect()->route('user.home');
+            if (Auth::user()->hasRole($role)) {
+                return redirect()->route("${role}.home");
             }
         }
 

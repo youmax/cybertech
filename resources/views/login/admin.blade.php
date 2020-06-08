@@ -28,7 +28,7 @@
         <div class="w-full md:w-1/2 flex flex-col">
 
             <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24">
-                <a href="/" class="bg-purple-800 text-white font-bold text-xl p-4">
+                <a href="/" class="bg-purple-800 w-1/2 p-4">
                     <img src="{{ asset('storage/logo.png') }}" alt="Logo" />
                 </a>
             </div>

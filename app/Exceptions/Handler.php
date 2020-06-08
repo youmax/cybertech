@@ -55,9 +55,9 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
             if (Auth::check()) {
-                $name = explode('.', $request->route()->getName())[0];
+                $role = explode('.', $request->route()->getName())[0];
                 if (!Auth::user()->hasRole($role)) {
-                    return redirect()->route("${name}.login");
+                    return redirect()->route("${role}.login");
                 }
                 return response()->json([
                     'responseMessage' => 'You do not have the required authorization.',
