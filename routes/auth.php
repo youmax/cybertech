@@ -41,7 +41,7 @@ Route::name('admin.')->namespace('Admin')->prefix('admin')->group(function () {
     resetPassword();
 });
 
-Route::name('dashboard.')->namespace('Dashboard')->prefix('dashboard')->group(function () {
+Route::name('user.')->namespace('User')->prefix('user')->group(function () {
     defaultLogin();
     resetPassword();
     registerAccount();

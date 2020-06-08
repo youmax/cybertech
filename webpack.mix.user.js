@@ -12,14 +12,14 @@ require('laravel-mix-merge-manifest')
  |
  */
 mix.disableNotifications();
-mix.js('resources/Dashboard/dashboard.js', 'public/dashboard/dashboard.js')
-  .postCss('resources/Dashboard/css/dashboard.css', 'public/dashboard/dashboard.css')
+mix.js('resources/User/user.js', 'public/user/user.js')
+  .postCss('resources/User/css/user.css', 'public/user/user.css')
   .webpackConfig({
-    output: { chunkFilename: 'dashboard/[name].js?id=[chunkhash]' },
+    output: { chunkFilename: 'user/[name].js?id=[chunkhash]' },
     resolve: {
       alias: {
         vue$: 'vue/dist/vue.runtime.esm.js',
-        '@': path.resolve('resources/Dashboard'),
+        '@': path.resolve('resources/User'),
       },
     },
   })

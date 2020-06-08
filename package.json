@@ -1,8 +1,8 @@
 {
     "private": true,
     "scripts": {
-        "build": "npm-run-all prod dashboard-prod admin-prod",
-        "watch-all": "npm-run-all --parallel watch dashboard-watch admin-watch",
+        "build": "npm-run-all prod user-prod admin-prod",
+        "watch-all": "npm-run-all --parallel watch user-watch admin-watch",
         "dev": "npm run development",
         "development": "cross-env process.env.section=app NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "npm run development -- --watch",
@@ -17,13 +17,13 @@
         "admin-hot": "cross-env process.env.section=admin NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
         "admin-prod": "npm run admin-production",
         "admin-production": "cross-env process.env.section=admin NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "dashboard-dev": "npm run dashboard-development",
-        "dashboard-development": "cross-env process.env.section=dashboard NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "dashboard-watch": "npm run dashboard-development -- --watch",
-        "dashboard-watch-poll": "npm run dashboard-watch -- --watch-poll",
-        "dashboard-hot": "cross-env process.env.section=dashboard NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "dashboard-prod": "npm run dashboard-production",
-        "dashboard-production": "cross-env process.env.section=dashboard NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+        "user-dev": "npm run user-development",
+        "user-development": "cross-env process.env.section=user NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "user-watch": "npm run user-development -- --watch",
+        "user-watch-poll": "npm run user-watch -- --watch-poll",
+        "user-hot": "cross-env process.env.section=user NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "user-prod": "npm run user-production",
+        "user-production": "cross-env process.env.section=user NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "dependencies": {
         "@fullhuman/postcss-purgecss": "^1.3.0",

@@ -3,7 +3,7 @@
 /public/storage
 /public/app
 /public/admin
-/public/dashboard
+/public/user
 /public/fonts
 /public/mix-manifest.json
 /storage/*.key

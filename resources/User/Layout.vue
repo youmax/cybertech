@@ -3,11 +3,9 @@
     <v-app-bar app clipped-left color="amber">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <span class="title ml-3 mr-5">
-        Google&nbsp;
-        <span class="font-weight-light">Keep</span>
+        {{ $page.app.name }} &nbsp;
+        <span class="font-weight-light">Dashboard</span>
       </span>
-      <v-text-field solo-inverted flat hide-details label="Search" prepend-inner-icon="mdi-search"></v-text-field>
-
       <v-spacer></v-spacer>
     </v-app-bar>
 
@@ -23,7 +21,7 @@
             </v-col>
           </v-row>
           <v-divider v-else-if="item.divider" :key="i" dark class="my-4"></v-divider>
-          <v-list-item v-else :key="i" link>
+          <v-list-item v-else :key="i" link v-on:click="logout">
             <v-list-item-action>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-action>
@@ -56,8 +54,13 @@ export default {
     drawer: null,
     items: [
       { icon: "mdi-note", text: "Notes" },
-      { icon: "mdi-logout", text: "logout" },
+      { icon: "mdi-logout", text: "logout" , click:"logout"},
     ]
-  })
+  }),
+  methods:{
+    logout(){
+       this.$inertia.post(route('user.logout'));
+    }
+  }
 };
 </script>

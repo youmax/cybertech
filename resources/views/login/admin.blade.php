@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind Login Template</title>
+    <title>{{ env('APP_NAME').' - Admin Login' }}</title>
     <meta name="author" content="David Grzyb">
     <meta name="description" content="">
 
     <!-- Tailwind -->
-    <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link href="{{ asset('vendor/tailwind.min.css')}}" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
@@ -28,16 +28,19 @@
         <div class="w-full md:w-1/2 flex flex-col">
 
             <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24">
-                <a href="#" class="bg-black text-white font-bold text-xl p-4">Logo</a>
+                <a href="/" class="bg-purple-800 text-white font-bold text-xl p-4">
+                    <img src="{{ asset('storage/logo.png') }}" alt="Logo" />
+                </a>
             </div>
 
             <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
-                <p class="text-center text-3xl">Welcome.</p>
+                <p class="text-center text-3xl">Login Admin Panel</p>
                 <form class="flex flex-col pt-3 md:pt-8" action="{{ route('admin.login') }}" method="POST">
                     @csrf
                     <div class="flex flex-col pt-4">
                         <label for="email" class="text-lg">Email</label>
-                        <input type="email" name="email" placeholder="your@email.com" value="{{ old('email')??'admin@gmail.com' }}"
+                        <input type="email" name="email" placeholder="your@email.com"
+                            value="{{ old('email')??'admin@gmail.com' }}"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
                     </div>
                     @error('email')

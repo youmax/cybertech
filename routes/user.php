@@ -13,6 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::name('dashboard.')->group(function () {
-    Route::get('/')->name('home')->uses('HomeController@index');
-});
+Route::get('/')->name('home')->uses('HomeController@index');

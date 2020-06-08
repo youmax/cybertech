@@ -20,8 +20,8 @@ class Authenticate extends Middleware
         }
         if (Str::contains($request->route()->getName(), 'admin')) {
             return route('admin.login');
-        } elseif (Str::contains($request->route()->getName(), 'dashboard')) {
-            return route('dashboard.login');
+        } elseif (Str::contains($request->route()->getName(), 'user')) {
+            return route('user.login');
         }
     }
 }

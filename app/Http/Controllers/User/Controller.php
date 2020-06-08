@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\User;
 
 use Inertia\Inertia;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -14,6 +14,6 @@ abstract class Controller extends BaseController
 
     public function __construct()
     {
-        Inertia::setRootView('dashboard');
+        Inertia::setRootView('user');
     }
 }

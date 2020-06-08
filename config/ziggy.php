@@ -6,10 +6,10 @@ return [
         ],
         'app' => [
             'app.*',
-            'dashboard.login'
+            'user.login'
         ],
-        'dashboard' => [
-            'dashboard.*'
+        'user' => [
+            'user.*'
         ]
     ],
 ];

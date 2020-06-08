@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\User;
 
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Storage;

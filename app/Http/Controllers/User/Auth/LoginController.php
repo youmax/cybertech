@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\Auth;
+namespace App\Http\Controllers\User\Auth;
 
-use App\Http\Controllers\Dashboard\Controller;
+use App\Http\Controllers\User\Controller;
 use App\Models\User;
 use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -30,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard';
+    protected $redirectTo = '/user';
 
     /**
      * Create a new controller instance.
@@ -44,7 +44,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('login.dashboard');
+        return view('login.user');
     }
 
     protected function validateLogin(Request $request)
@@ -84,6 +84,6 @@ class LoginController extends Controller
 
     protected function loggedOut(Request $request)
     {
-        return InertiaHardVisit(route('dashboard.login'));
+        return InertiaHardVisit(route('user.login'));
     }
 }

@@ -56,7 +56,6 @@ class Handler extends ExceptionHandler
         if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
             if (Auth::check()) {
                 $name = explode('.', $request->route()->getName())[0];
-                $role = ($name != 'dashboard') ? $name : 'user';
                 if (!Auth::user()->hasRole($role)) {
                     return redirect()->route("${name}.login");
                 }

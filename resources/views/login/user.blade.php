@@ -9,7 +9,7 @@
     <meta name="description" content="">
 
     <!-- Tailwind -->
-    <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link href="{{ asset('vendor/tailwind.min.css') }}" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
@@ -47,7 +47,7 @@
                     </span>
                 </div>
                 @enderror
-                <form class="flex flex-col pt-3 md:pt-8" action="{{ route('dashboard.login') }}" method="POST">
+                <form class="flex flex-col pt-3 md:pt-8" action="{{ route('user.login') }}" method="POST">
                     @csrf
                     <div class="flex flex-col pt-4">
                         <label for="email" class="text-lg">Email</label>
@@ -92,7 +92,7 @@
                 </form>
                 <div class="text-center pt-12 pb-12">
                     <p>
-                        <a href="{{ route('admin.password.request') }}" class="underline font-semibold">
+                        <a href="{{ route('user.password.request') }}" class="underline font-semibold">
                             {{ __('Forgot Your Password?') }}
                         </a>
                     </p>

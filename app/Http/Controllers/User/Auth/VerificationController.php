@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard\Auth;
+namespace App\Http\Controllers\User\Auth;
 
-use App\Http\Controllers\Dashboard\Controller;
+use App\Http\Controllers\User\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 
