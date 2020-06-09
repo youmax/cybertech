@@ -1,25 +1,12 @@
 <template>
   <nav
-    class="bg-gray-800 text-white fixed top-0 z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg"
+    class="bg-gray-800 text-white fixed top-0 z-50 w-full flex flex-wrap items-center justify-between px-4 md:px-8 py-4 navbar-expand-lg"
   >
-    <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-      <div
-        class="w-full relative flex justify-between lg:w-auto lg:static lg:block item-center"
-      >
+    <div class="container mx-auto flex flex-wrap items-center justify-between">
+      <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block item-center">
         <!-- logo -->
         <a class="flex items-center flex-shrink-0 text-white mr-6" href="/">
-          <svg
-            class="fill-current h-8 w-8 mr-2"
-            width="54"
-            height="54"
-            viewBox="0 0 54 54"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"
-            />
-          </svg>
-          <span class="font-semibold text-xl tracking-tight">{{ $page.app.name }}</span>
+          <img src="/storage/logo.png" alt="Cyber Technology Logo" />
         </a>
         <!-- logo -->
         <!-- toggle button-->
@@ -48,11 +35,14 @@
         class="lg:flex flex-grow items-center justify-end"
         v-bind:class="{'hidden': !show, 'block': show}"
       >
-        <a class="btn-nav lg:mx-2" href="/#products">產品</a>
-        <a class="btn-nav lg:mx-2" href="/#aboutus">關於我們</a>
-        <a class="btn-nav lg:mx-2" href="/#contactus">聯繫我們</a>
-        <dropdown />
-        <a class="btn-indigo lg:mx-2" :href="route('user.login')">登入</a>
+        <a class="btn-nav" href="/#contactus">聯絡銷售人員</a>
+        <dropdown :items="supports" :label="'支援'" />
+        <dropdown :items="languages" :selectedIndex="0" />
+        <dropdown :items="accounts" :label="'我的帳戶'" />
+        <a
+          class="btn bg-orange-180 text-sm px-2 py-2 rounded-sm font-bold hidden md:block md:ml-2"
+          :href="route('user.login')"
+        >登入主控台</a>
       </div>
     </div>
   </nav>
@@ -65,7 +55,19 @@ export default {
   },
   data() {
     return {
-      show: false
+      show: false,
+      languages:[
+        {text:"中文", link:"?locale=cn"},
+        {text:"English", link:"?locale=en"}
+      ],
+      supports:[
+        {text:"支援中心", link:"/#contactus"},
+        {text:"知識中心", link:"/#contactus"}
+      ],
+      accounts:[
+        {text:"管理主控台", link:"/#contactus"},
+        {text:"帳戶設定", link:"/#contactus"}
+      ]
     };
   },
   methods: {

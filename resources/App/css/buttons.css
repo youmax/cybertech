@@ -1,9 +1,9 @@
 .btn-nav {
-    @apply block bg-transparent font-semibold px-3 py-4 whitespace-no-wrap text-center rounded;
+    @apply block bg-transparent px-2 py-2 whitespace-no-wrap text-center text-sm;
     &:hover,
     &:focus,
     &.active{
-        @apply text-gray-900 bg-gray-200 outline-none text-gray-900;
+        @apply text-orange-500 outline-none;
     },
     &:hover{
         @apply cursor-pointer;

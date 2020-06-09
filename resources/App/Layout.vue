@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import NavbarComponent from "@/Shared/Navbar";
-import FooterComponent from "@/Shared/Footer";
+import NavbarComponent from "@/Navbar";
+import FooterComponent from "@/Footer";
 import Dropdown from "@/Shared/Dropdown";
 
 export default {
