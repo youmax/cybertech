@@ -76,6 +76,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapAppRoutes()
     {
         Route::middleware('web')
+            ->name('app.')
             ->namespace('App\Http\Controllers\App')
             ->group(base_path('routes/app.php'));
     }
@@ -91,6 +92,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapAdminRoutes()
     {
         Route::middleware(['web', 'auth', 'role:admin'])
+            ->name('admin.')
             ->namespace('App\Http\Controllers\Admin')
             ->prefix('admin')
             ->group(base_path('routes/admin.php'));
