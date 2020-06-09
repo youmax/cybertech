@@ -7,6 +7,8 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
+use App\View\Components\Alert;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,7 +29,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->registerBladeComponents();
+    }
+
+    protected function registerBladeComponents(){
+        Blade::component('alert', Alert::class);
     }
 
     protected function registerInertia()
