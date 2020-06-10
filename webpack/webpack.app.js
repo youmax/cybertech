@@ -25,7 +25,7 @@ mix.js('resources/App/app.js', 'public/app/app.js')
     postCss: [
       cssImport(),
       cssNesting(),
-      tailwindcss('tailwind.config.js'),
+      tailwindcss('tailwind/tailwind.app.js'),
       ...mix.inProduction() ? [
         purgecss({
           content: ['./resources/views/**/*.blade.php', './resources/App/**/*.vue'],

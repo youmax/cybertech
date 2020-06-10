@@ -9,15 +9,8 @@
     <meta name="description" content="">
 
     <!-- Tailwind -->
-    <link href="{{ asset('vendor/tailwind.min.css') }}" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
-
-        .font-family-karla {
-            font-family: karla;
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <link href="{{ mix('vendor/tailwind.min.css') }}" rel="stylesheet">
+    <script src="{{ mix('vendor/alpine.min.js') }}" defer></script>
 </head>
 
 <body class="bg-white font-family-karla h-screen">
