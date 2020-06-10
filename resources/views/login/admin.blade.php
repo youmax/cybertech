@@ -16,11 +16,13 @@
     <div class="container mx-auto h-full flex justify-center items-center">
         <!-- Login Section -->
         <div class="bg-white shadow-md rounded px-8 flex flex-col w-full sm:w-3/4 lg:w-1/2">
+            <!-- Logo -->
             <div class="flex justify-center pt-12 space-y-0">
                 <a href="/">
                     <img style="max-width: 100%;height: auto;" src="{{ asset('storage/logo_admin.png') }}" alt="Logo" />
                 </a>
             </div>
+            <!-- Logo -->
             <div class="flex flex-col justify-center  my-auto pt-8 px-8">
                 <h3 class="text-center text-2xl mb-4">登入</h3>
                 <p class="text-center text-base mb-4">使用你的管理員帳號</p>
@@ -41,7 +43,7 @@
                     </div>
                     <x-alert :name="'password'" />
                     <input type="submit" value="{{ __('Login') }}"
-                        class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8">
+                        class="bg-black text-white font-bold text-lg hover:bg-gray-700 hover:cursor-pointer p-2 mt-8">
                 </form>
                 <div class="text-center pt-8 pb-12">
                     <p>
