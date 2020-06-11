@@ -40,7 +40,7 @@
         <dropdown :items="languages" :selectedIndex="0" />
         <dropdown :items="accounts" :label="'我的帳戶'" />
         <a
-          class="btn bg-orange-180 text-sm px-2 py-2 rounded-sm font-bold hidden md:block md:ml-2"
+          class="btn bg-linear-orange-500 hover:bg-linear-orange-600 text-sm px-2 py-2 rounded-sm font-bold hidden md:block md:ml-2"
           :href="route('user.login')"
         >登入主控台</a>
       </div>

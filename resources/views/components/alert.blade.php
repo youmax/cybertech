@@ -1,5 +1,5 @@
 @error($name)
-<div class="flex mt-2 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative animate__animated" role="alert"
+<div class="flex mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative animate__animated" role="alert"
     x-data="{ open: true }"
     x-show="open"
     x-bind:class="{ 'animate__pulse': open}"

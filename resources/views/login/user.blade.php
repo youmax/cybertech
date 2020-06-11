@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tailwind Login Template</title>
+    <title>{{ env('APP_NAME') }} Web Service</title>
     <meta name="author" content="David Grzyb">
     <meta name="description" content="">
 
@@ -13,90 +13,63 @@
     <script src="{{ mix('vendor/alpine.min.js') }}" defer></script>
 </head>
 
-<body class="bg-white font-family-karla h-screen">
-
-    <div class="w-full flex flex-wrap">
-
+<body class="bg-white h-screen">
+    <div class="container mx-auto px-8">
         <!-- Login Section -->
-        <div class="w-full md:w-1/2 flex flex-col">
+        <div class="w-full flex flex-col lg:w-5/6 mx-auto">
 
-            <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24">
-                <a href="#" class="bg-black text-white font-bold text-xl p-4">Logo</a>
-            </div>
-
-            <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
-                <p class="text-center text-3xl">Welcome.</p>
-                @error('permission')
-                <div class="flex mt-2 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
-                    role="alert" x-show="open" x-data="{ open: true }">
-                    <strong class="font-bold"> {{ $message }}</strong>
-                    <span class="relative top-0 bottom-0 right-0">
-                        <svg class="fill-current h-6 w-6 text-red-500" role="button"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" @click="open = false">
-                            <title>Close</title>
-                            <path
-                                d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
-                        </svg>
-                    </span>
+            <a href="/" class="my-6 px-4">
+                <img src="{{ asset('storage/logo_admin.png') }}" alt="Logo" />
+            </a>
+            <!-- Row Layout -->
+            <div class="flex flex-row">
+                <div class="flex flex-col justify-start px-8 lg:w-2/5 w-full px-4">
+                    <p class="text-left text-2xl text-gray-800 mb-4">Sign in</p>
+                    <x-alert :name="'permission'" />
+                    <form class="flex flex-col" action="{{ route('user.login') }}" method="POST">
+                        @csrf
+                        <div class="flex flex-col pt-4">
+                            <label for="email" class="text-md font-semibold">Email</label>
+                            <input type="email" name="email" placeholder="your@email.com"
+                                value="{{ old('email')??'test1@gmail.com' }}"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
+                        </div>
+                        <x-alert :name="'email'" />
+                        <div class="flex flex-col pt-4">
+                            <label for="password" class="text-md flex font-semibold">Password
+                                <a href="{{ route('user.password.request') }}"
+                                    class="ml-auto text-base text-blue-600 font-normal">
+                                    {{ __('messages.password.forgot') }}
+                                </a>
+                            </label>
+                            <input type="password" name="password" placeholder="Password" value="123456"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
+                        </div>
+                        <x-alert :name="'password'" />
+                        <input type="submit" value="{{ __('messages.login') }}"
+                            class="bg-blue-600 text-white font-bold text-lg hover:bg-blue-300 hover:cursor-pointer p-2 mt-6 rounded-md">
+                    </form>
+                    <a href="{{ route('user.register') }}" class="w-full text-base text-blue-600 my-4">
+                        {{ __('messages.register') }}
+                    </a>
                 </div>
-                @enderror
-                <form class="flex flex-col pt-3 md:pt-8" action="{{ route('user.login') }}" method="POST">
-                    @csrf
-                    <div class="flex flex-col pt-4">
-                        <label for="email" class="text-lg">Email</label>
-                        <input type="email" name="email" placeholder="your@email.com" value="{{ old('email')??'test1@gmail.com' }}"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
-                    </div>
-                    @error('email')
-                    <div class="flex mt-2 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
-                        role="alert" x-show="open" x-data="{ open: true }">
-                        <strong class="font-bold"> {{ $message }}</strong>
-                        <span class="relative top-0 bottom-0 right-0">
-                            <svg class="fill-current h-6 w-6 text-red-500" role="button"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" @click="open = false">
-                                <title>Close</title>
-                                <path
-                                    d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
-                            </svg>
-                        </span>
-                    </div>
-                    @enderror
-                    <div class="flex flex-col pt-4">
-                        <label for="password" class="text-lg">Password</label>
-                        <input type="password" name="password" placeholder="Password" value="123456"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
-                    </div>
-                    @error('password')
-                    <div class="flex mt-2 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
-                        role="alert" x-show="open" x-data="{ open: true }">
-                        <strong class="font-bold"> {{ $message }}</strong>
-                        <span class="relative top-0 bottom-0 right-0">
-                            <svg class="fill-current h-6 w-6 text-red-500" role="button"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" @click="open = false">
-                                <title>Close</title>
-                                <path
-                                    d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
-                            </svg>
-                        </span>
-                    </div>
-                    @enderror
-                    <input type="submit" value="{{ __('Login') }}"
-                        class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8">
-                </form>
-                <div class="text-center pt-12 pb-12">
-                    <p>
-                        <a href="{{ route('user.password.request') }}" class="underline font-semibold">
-                            {{ __('Forgot Your Password?') }}
-                        </a>
-                    </p>
+                <div class="hidden lg:flex flex-col w-3/5 px-4">
+                    <img src="{{ asset('storage/login.png') }}" class="bg-contain bg-center" alt="">
                 </div>
             </div>
-
-        </div>
-
-        <!-- Image Section -->
-        <div class="w-1/2 shadow-2xl">
-            <img class="object-cover w-full h-screen hidden md:block" src="https://source.unsplash.com/IXUM4cJynP0">
+            <!-- Row Layout -->
+            <p class="px-4 my-8 text-sm">
+                <strong>About Amazon.com Sign In </strong>
+                Amazon Web Services uses information from your Amazon.com account to identify you and allow access to
+                Amazon Web Services. Your use of this site is governed by our Terms of Use and Privacy Policy linked
+                below. Your use of Amazon Web Services products and services is governed by the AWS Customer Agreement
+                linked below unless you have entered into a separate agreement with Amazon Web Services or an AWS Value
+                Added Reseller to purchase these products and services. The AWS Customer Agreement was updated on March
+                31, 2017. For more information about these updates, see Recent Changes.
+            </p>
+            <footer class="px-4 my-4 text-sm">
+                &copy; {{ now()->year }}, {{ env('APP_NAME') }}. or its affiliates. All rights reserved
+            </footer>
         </div>
     </div>
 </body>
