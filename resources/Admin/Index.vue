@@ -1,16 +1,22 @@
 <template>
-  <layout>
-  </layout>
+  <div>
+    {{ `${$page.app.name} Home page` }}
+  </div>
 </template>
 
 <script>
-import Layout from "@/Layout";
+import Layout from "@/Shared/Layout";
 
 export default {
   components:{
     Layout
   },
-  metaInfo: { title: "Home" },
+  layout: Layout,
 
+  metaInfo() { 
+    return {
+      title: `Dashboard`
+    }
+  },
 };
 </script>
