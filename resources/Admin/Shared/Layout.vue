@@ -16,7 +16,7 @@
       ></v-text-field>
       <v-spacer></v-spacer>
       <v-btn icon>
-        <v-icon>mdi-apps</v-icon>
+        <v-icon>mdi-app</v-icon>
       </v-btn>
       <v-btn icon>
         <v-icon>mdi-bell</v-icon>
