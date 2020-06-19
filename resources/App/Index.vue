@@ -268,7 +268,6 @@ export default {
         },
         { name: "Liew", image: "storage/avatars/0.png" },
         { name: "Alcris", image: "storage/avatars/0.png" },
-        { name: "Charlie", image: "storage/avatars/0.png" },
         { name: "Mike", image: "storage/avatars/0.png" }
       ]
     };

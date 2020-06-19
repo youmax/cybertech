@@ -2,34 +2,30 @@ export default {
   namespaced: true,
 
   state: {
+    headers: [
+      { text: "Title", value: "name" },
+      { text: "Detail", value: "detail" },
+      { text: "Actions", value: "actions", sortable: false }
+    ],
     items: []
   },
 
   getters: {
-
-  },
-
-  mutations: {
-    setProducts (state, products) {
-      // update products
-      state.items = products
-    },
-
-    decrementProductInventory (state, product) {
-      product.inventory--
+    columnDef : state =>{
+      return state.headers.map((obj)=>{return obj.value}).filter(v=>v!='actions');
     }
   },
 
+  mutations: {
+    setItems (state, items) {
+      state.items = items
+    },
+
+  },
+
   actions: {
-    fetchProducts({commit}) {
-      return new Promise((resolve, reject) => {
-        // make the call
-        // call setProducts mutation
-        shop.getProducts(products => {
-          commit('setProducts', products)
-          resolve()
-        })
-      })
+    fetchProducts({commit , rootGetters}) {
+      commit('setItems', rootGetters.$page.items);
     }
   }
 }

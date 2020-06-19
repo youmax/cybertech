@@ -13,3 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
  */
 Route::get('/')->name('home')->uses('HomeController@index');
+Route::resource('products', 'ProductController');

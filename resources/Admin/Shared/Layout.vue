@@ -52,9 +52,13 @@ export default {
   data: () => ({
 
   }),
+  created(){
+    this.initInertia(this.$page, this.$inertia);
+  },
   methods: {
     ...mapActions({
-      toggle: "header/toggle"
+      toggle: "header/toggle",
+      initInertia : 'initInertia'
     })
   }
 };
