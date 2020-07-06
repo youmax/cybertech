@@ -6,12 +6,11 @@ stages:
 
 image: edbizarro/gitlab-ci-pipeline-php:7.3
 
-# Variables
 variables:
   MYSQL_ROOT_PASSWORD: root
-  MYSQL_USER: mysql_user
+  MYSQL_USER: laravel
   MYSQL_PASSWORD: mysql_password
-  MYSQL_DATABASE: mysql_db
+  MYSQL_DATABASE: laravel
   DB_HOST: mysql
 
 cache:
@@ -50,18 +49,19 @@ yarn:
 
 build-assets:
   stage: building
-  # Download the artifacts for these jobs
   dependencies:
     - composer
     - yarn
   script:
     - yarn --version
-    - yarn run production --progress false
+    - yarn run build --progress false
   artifacts:
     paths:
-      - public/css/
-      - public/js/
-      - public/fonts/
+      - public/admin/
+      - public/app/
+      - public/images/
+      - public/user/
+      - public/vendor/
       - public/mix-manifest.json
     expire_in: 1 days
     when: always
@@ -71,27 +71,23 @@ db-seeding:
   services:
     - name: mysql:8.0
       command: ["--default-authentication-plugin=mysql_native_password"]
-  # Download the artifacts for these jobs
   dependencies:
     - composer
     - yarn
   script:
     - mysql --version
     - php artisan migrate:fresh --seed
-    - mysqldump --host="${DB_HOST}" --user="${MYSQL_USER}" --password="${MYSQL_PASSWORD}" "${MYSQL_DATABASE}" > db.sql
   artifacts:
     paths:
-      - storage/logs # for debugging
-      - db.sql
+      - ./storage/logs # for debugging
     expire_in: 1 days
-    when: always
+    when: on_failure
 
 phpunit:
   stage: testing
   services:
     - name: mysql:8.0
       command: ["--default-authentication-plugin=mysql_native_password"]
-  # Download the artifacts for these jobs
   dependencies:
     - build-assets
     - composer
@@ -100,7 +96,6 @@ phpunit:
     - php -v
     - sudo cp /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.bak
     - echo "" | sudo tee /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-    - mysql --host="${DB_HOST}" --user="${MYSQL_USER}" --password="${MYSQL_PASSWORD}" "${MYSQL_DATABASE}" < db.sql
     - ./vendor/phpunit/phpunit/phpunit --version
     - php -d short_open_tag=off ./vendor/phpunit/phpunit/phpunit -v --colors=never --stderr
     - sudo cp /usr/local/etc/php/conf.d/docker-php-ext-xdebug.bak /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
