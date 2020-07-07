@@ -26,7 +26,6 @@ function registerAccount()
 
     Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
     Route::post('register', 'Auth\RegisterController@register');
-
 }
 
 function defaultLogin()

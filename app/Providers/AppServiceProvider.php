@@ -32,7 +32,8 @@ class AppServiceProvider extends ServiceProvider
         $this->registerBladeComponents();
     }
 
-    protected function registerBladeComponents(){
+    protected function registerBladeComponents()
+    {
         Blade::component('alert', Alert::class);
     }
 
