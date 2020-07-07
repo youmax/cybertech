@@ -109,7 +109,7 @@ codestyle:
   stage: testing
   image: lorisleiva/laravel-docker
   script:
-    - phpcs --extensions=php app
+    - phpcs --extensions=php --standard=PSR2 app
   dependencies: []
 
 phpcpd:
