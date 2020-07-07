@@ -54,7 +54,7 @@ build-assets:
     - yarn
   script:
     - yarn --version
-    - yarn run build --progress false
+    - yarn run build
   artifacts:
     paths:
       - public/admin/
